@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(180deg, #fff0f3 0%, #ff85a1 50%, #c9184a 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Importante para os corações não criarem barra de rolagem */
+    position: relative;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    z-index: 10; /* Garante que o cartão fique na frente dos corações */
+}
+
+/* Estilo dos corações que sobem */
+.floating-heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff4d6d;
+    user-select: none;
+    pointer-events: none;
+    animation: moveUp linear forwards;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ... Restante do estilo anterior ... */
+.heart-icon { font-size: 2.5rem; margin-bottom: 10px; animation: pulse 1.2s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+h1 { font-family: 'Dancing Script', cursive; background: linear-gradient(to bottom, #ff4d6d, #800e13); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2.8rem; }
+#timer { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 25px 0; }
+.time-box { background: #fff0f3; padding: 20px; border-radius: 20px; border: 1px solid #ffb3c1; }
+.time-box span { display: block; font-size: 2rem; font-weight: 700; color: #a4133c; }
+.time-box p { font-size: 0.75rem; color: #ff4d6d; font-weight: bold; }
+.footer-msg { font-family: 'Dancing Script', cursive; color: #800e13; font-size: 1.3rem; }
